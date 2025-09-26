@@ -31,141 +31,55 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alif Business — Download</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alif Business</title>
   <style>
-    /* Bosh sahifa uslubi */
-    :root{
-      --gap: 32px;
-      --img-size-desktop: 140px;
-      --img-size-mobile: 110px;
-      --text-color: #222;
-      --muted: #666;
-      --bg: #fff;
-      --container-max: 900px;
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+      font-family: sans-serif;
     }
-
-    html,body{
-      height:100%;
-      margin:0;
-      font-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text-color);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    .logos {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-
-    .page {
-      min-height:100%;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:flex-start;
-      padding:48px 16px;
-      box-sizing:border-box;
-    }
-
-    .container {
-      width:100%;
-      max-width:var(--container-max);
-      margin:0 auto;
-      text-align:center;
-    }
-
-    .stores {
-      display:flex;
-      gap:var(--gap);
-      justify-content:center;
-      align-items:flex-start;
-      flex-wrap:wrap; /* small screens -> stacked */
-      margin-bottom:28px;
-    }
-
-    .store {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:flex-start;
-      min-width:160px;
-    }
-
-    .store a {
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .store img {
-      display:block;
-      width: var(--img-size-desktop);
+    .logos img {
+      width: 150px;
       height: auto;
-      margin:0 auto;
-      border-radius:12px; /* optional soft corner */
-      box-shadow: 0 6px 18px rgba(30,30,30,0.06);
     }
-
-    .caption {
-      margin-top:12px;
-      font-size:16px;
-      font-weight:600;
-    }
-
-    .subtext {
-      margin-top:6px;
-      font-size:14px;
-      color:var(--muted);
-      font-weight:500;
-    }
-
-    /* Body text (past images) */
-    .content {
-      margin-top:28px;
-      font-size:15px;
-      line-height:1.6;
-      color:var(--text-color);
-      text-align:center;
-      padding: 0 12px;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width:600px){
-      .stores { gap:20px; }
-      .store img { width: var(--img-size-mobile); }
-      .caption { font-size:15px; }
-      .subtext { font-size:13px; }
-      .container { padding:0 10px; }
+    p {
+      font-size: 1.2rem;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="container">
-      <div class="stores">
-        <!-- App Store -->
-        <figure class="store">
-          <a href="https://apps.apple.com/us/app/alif-business/id6698895264" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/2048px-App_Store_%28iOS%29.svg.png" alt="App Store" />
-          </a>
-          <figcaption class="caption">App Store</figcaption>
-          <div class="subtext">iOS uchun yuklab olish</div>
-        </figure>
-
-        <!-- Google Play -->
-        <figure class="store">
-          <a href="https://play.google.com/store/apps/details?id=com.alif.business" target="_blank" rel="noopener noreferrer">
-            <img src="https://freelogopng.com/images/all_img/1664285914google-play-logo-png.png" alt="Google Play" />
-          </a>
-          <figcaption class="caption">Google Play</figcaption>
-          <div class="subtext">Android uchun yuklab olish</div>
-        </figure>
-      </div>
-
-      <!-- Pastdagi matn -->
-      <div class="content">
-        <p>Alif Business ilovasini mos platforma uchun yuqoridagi rasmni bosib yuklab olishingiz mumkin. Agar qurilmangiz mobil bo‘lsa, avtomatik ravishda tegishli do‘konga yo‘naltirilasiz.</p>
-      </div>
-    </div>
+  <div class="logos">
+    <img src="https://freelogopng.com/images/all_img/1664285914google-play-logo-png.png" alt="Google Play">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/2048px-App_Store_%28iOS%29.svg.png" alt="App Store">
   </div>
+  <p>Iltimos, sizga mos do‘konga yo‘naltirilmoqda...</p>
+
+  <script>
+    const ua = navigator.userAgent;
+    if (/android/i.test(ua)) {
+      window.location.href = "https://play.google.com/store/apps/details?id=com.alif.business";
+    } else if (/iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && 'ontouchend' in document)) {
+      window.location.href = "https://apps.apple.com/us/app/alif-business/id6698895264";
+    } else {
+      // Desktop foydalanuvchilar uchun Google Play
+      window.location.href = "https://play.google.com/store/apps/details?id=com.alif.business";
+    }
+  </script>
 </body>
 </html>
+
 
